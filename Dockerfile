@@ -1,8 +1,8 @@
 FROM python:3.12-slim
 
-# Instala dependências do sistema incluindo libredwg para converter DWG → DXF
+# Dependências do sistema. libredwg NÃO está disponível via apt nesta imagem;
+# a conversão DWG→DXF fica desabilitada (uploads DXF continuam funcionando).
 RUN apt-get update && apt-get install -y \
-    libredwg-tools \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
